@@ -11,74 +11,54 @@
       color: white;
     }
 
-    #home {
+    h1 {
       text-align: center;
-      padding-top: 120px;
+      margin-top: 20px;
     }
 
-    button {
-      background: #4c8cff;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    #editorPage {
-      display: none;
-      height: 100vh;
-    }
-
-    .container {
+    #container {
       display: flex;
-      height: 100%;
+      height: 90vh;
     }
 
     textarea {
       width: 50%;
-      height: 100vh;
       background: #222;
       color: white;
       font-size: 16px;
-      border: none;
       padding: 10px;
+      border: none;
       outline: none;
+      resize: none;
     }
 
     iframe {
       width: 50%;
-      height: 100vh;
-      background: white;
       border: none;
+      background: white;
     }
   </style>
 </head>
 
 <body>
 
-<!-- HOME SCREEN -->
-<div id="home">
-  <h1>CodeLoadX</h1>
-  <p>Code. Build. Preview.</p>
-  <button onclick="openEditor()">Start Coding</button>
-</div>
+<h1>CodeLoadX</h1>
 
-<!-- EDITOR SCREEN -->
-<div id="editorPage">
-  <div class="container">
-    <textarea id="code"><h1>Hello CodeLoadX</h1></textarea>
-    <iframe id="preview"></iframe>
-  </div>
+<div id="container">
+  <textarea id="code"><h1>Hello CodeLoadX</h1>
+<style>
+h1 { color: blue; }
+</style>
+
+<script>
+console.log("CodeLoadX running");
+</script>
+  </textarea>
+
+  <iframe id="preview"></iframe>
 </div>
 
 <script>
-function openEditor() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("editorPage").style.display = "block";
-}
-
 const code = document.getElementById("code");
 const preview = document.getElementById("preview");
 
