@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CodeLoadX</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #111;
+      color: white;
+    }
+
+    #home {
+      text-align: center;
+      padding-top: 120px;
+    }
+
+    button {
+      background: #4c8cff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #editorPage {
+      display: none;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      height: 100%;
+    }
+
+    textarea {
+      width: 50%;
+      height: 100vh;
+      background: #222;
+      color: white;
+      font-size: 16px;
+      border: none;
+      padding: 10px;
+      outline: none;
+    }
+
+    iframe {
+      width: 50%;
+      height: 100vh;
+      background: white;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HOME SCREEN -->
+<div id="home">
+  <h1>CodeLoadX</h1>
+  <p>Code. Build. Preview.</p>
+  <button onclick="openEditor()">Start Coding</button>
+</div>
+
+<!-- EDITOR SCREEN -->
+<div id="editorPage">
+  <div class="container">
+    <textarea id="code"><h1>Hello CodeLoadX</h1></textarea>
+    <iframe id="preview"></iframe>
+  </div>
+</div>
+
+<script>
+function openEditor() {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("editorPage").style.display = "block";
+}
+
+const code = document.getElementById("code");
+const preview = document.getElementById("preview");
+
+function update() {
+  preview.srcdoc = code.value;
+}
+
+code.addEventListener("input", update);
+update();
+</script>
+
+</body>
+</html>
