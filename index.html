@@ -13,7 +13,23 @@
 
     h1 {
       text-align: center;
-      margin-top: 20px;
+      margin: 10px 0;
+    }
+
+    #topbar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    button {
+      background: #4c8cff;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
     #container {
@@ -44,8 +60,14 @@
 
 <h1>CodeLoadX</h1>
 
+<div id="topbar">
+  <button onclick="update()">Run</button>
+  <button onclick="publish()">Publish</button>
+</div>
+
 <div id="container">
   <textarea id="code"><h1>Hello CodeLoadX</h1>
+
 <style>
 h1 { color: blue; }
 </style>
@@ -68,6 +90,19 @@ function update() {
 
 code.addEventListener("input", update);
 update();
+
+// 🔥 PUBLISH FUNCTION
+function publish() {
+  const blob = new Blob([code.value], { type: "text/html" });
+
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "index.html";
+
+  a.click();
+
+  alert("Download complete. Upload index.html to GitHub Pages to publish your site.");
+}
 </script>
 
 </body>
